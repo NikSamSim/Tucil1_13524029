@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="stima.MainController" style="-fx-background-color: white;">
+
+    <center>
+        <StackPane style="-fx-background-color: #cccccc; -fx-padding: 20;">
+            <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background: transparent; -fx-background-color: transparent;">
+                <StackPane>
+                    <GridPane fx:id="board_grid" alignment="CENTER" hgap="1" vgap="1" style="-fx-background-color: #333; -fx-padding: 2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);"/>
+                </StackPane>
+            </ScrollPane>
+        </StackPane>
+    </center>
+
+    <right>
+        <HBox spacing="0" style="-fx-background-color: #f4f4f4; -fx-border-color: #dddddd; -fx-border-width: 0 0 0 1;">
+            
+            <VBox spacing="10" prefWidth="250" style="-fx-padding: 20; -fx-background-color: #f9f9f9; -fx-border-color: #e0e0e0; -fx-border-width: 0 1 0 0;">
+                <Label text="Input Manual / Pratinjau" style="-fx-font-size: 14px; -fx-text-fill: #555;"/>
+                
+                <TextArea fx:id="solution_text_area" VBox.vgrow="ALWAYS" editable="true" wrapText="false" style="-fx-font-family: 'Monospaced'; -fx-font-size: 13px; -fx-control-inner-background: white;"/>
+
+                <Button text="Terapkan Input" onAction="#handleApplyInput" maxWidth="Infinity" style="-fx-background-color: #4A90E2; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 8;"/>
+                
+                <Separator/>
+                
+                <Button text="Input .txt" onAction="#handleLoadFile" maxWidth="Infinity" style="-fx-background-color: #5C6BC0; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 8;"/>
+                
+            </VBox>
+
+            <VBox spacing="15" prefWidth="300" style="-fx-padding: 20; -fx-background-color: white;">
+                
+                <Label text="LinkedIn Queens Solver" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                
+                <Separator/>
+
+                <VBox spacing="5">
+                    <Label text="Pilih Algoritma:" style="-fx-font-weight: bold;"/>
+                    <ComboBox fx:id="algo_combo_box" maxWidth="Infinity" style="-fx-font-size: 13px;"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <CheckBox fx:id="visualize_check_box" text="Tampilkan Visualisasi" selected="true" style="-fx-font-weight: bold;"/>
+                    <Label wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #666; -fx-font-style: italic;" text="Menampilkan visualisasi akan berpengaruh pada kecepatan karena ada jeda pergantian iterasi. Matikan untuk benchmark waktu murni."/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="Kecepatan jeda:" style="-fx-font-size: 12px;"/>
+                        <Label fx:id="speed_label" text="50 ms" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+                    </HBox>
+                    <Slider fx:id="speed_slider" min="1" max="500" value="50" blockIncrement="10"/>
+                </VBox>
+
+                <Button fx:id="solve_button" text="Solve" onAction="#handleSolve" maxWidth="Infinity" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 10 20 10 20; -fx-background-radius: 5;"/>
+
+                <Separator/>
+
+                <VBox spacing="5" style="-fx-padding: 5;">
+                    <HBox spacing="5">
+                        <Label text="Waktu pencarian:" style="-fx-font-weight: bold;"/>
+                        <Label fx:id="time_label" text="0 ms"/>
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label text="Banyak kasus yang ditinjau:" style="-fx-font-weight: bold;"/>
+                        <Label fx:id="iteration_label" text="0 kasus"/>
+                    </HBox>
+                    <Label fx:id="status_label" text="Silakan masukkan input (manual atau unggah .txt)" wrapText="true" style="-fx-text-fill: #555;"/>
+                </VBox>
+
+                <Region VBox.vgrow="ALWAYS"/> <Button fx:id="save_button" text="Simpan Solusi" onAction="#handleSave" disable="true" maxWidth="Infinity" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 10; -fx-background-radius: 5;"/>
+
+            </VBox>
+        </HBox>
+    </right>
+
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-padding: 10; -fx-background-color: #333;">
+            <Label text="Powered by Brute Force – NikSamSim" style="-fx-text-fill: white; -fx-font-size: 12px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
