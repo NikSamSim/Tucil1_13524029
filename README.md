@@ -76,9 +76,9 @@ atau langsung double click file `queens-solver-1.0.jar` yang ada di folder bin/
     * Klik **Input .txt** untuk membuka file .txt.
     * Atau ketik manual di area teks lalu klik **Terapkan Input**.
 2.  **Pilih Algoritma**:
-    * Pilih "Brute Force Kombinasi Petak" atau "Brute Force Per Wilayah" pada *dropdown* "Pilih Algoritma".
+    * Pilih "Brute Force Kombinasi Petak" atau "Brute Force Per Wilayah" pada *dropdown* **Pilih Algoritma**.
 3.  **Visualisasi**:
-    * Centang "Tampilkan Visualisasi" jika ingin melihat *live update*.
+    * Centang **Tampilkan Visualisasi** jika ingin melihat *live update*.
     * Atur kecepatan animasi menggunakan *slider*.
 4.  **Eksekusi**:
     * Klik tombol **Solve**.
